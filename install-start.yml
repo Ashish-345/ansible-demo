@@ -1,0 +1,7 @@
+--- 
+- 
+  hosts: webapp
+  tasks: 
+    - 
+      name: "start httpd service"
+      command: service httpd start
