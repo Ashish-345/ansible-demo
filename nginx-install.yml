@@ -1,0 +1,11 @@
+- hosts: webapp
+  tasks:
+    - name: Install nginx package
+      yum:
+        name: nginx
+        state: latest
+    - name: check nginx service status
+      service:
+        name: nginx
+        state: started
+      

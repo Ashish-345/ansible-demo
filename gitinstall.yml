@@ -1,0 +1,6 @@
+- hosts: webapp
+  tasks:
+    - name: Install GIT package
+      yum:
+        name: git
+        state: latest 

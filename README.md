@@ -5,8 +5,6 @@ truncate -s 0 access.log
 ansible --version
 ansible all -m ping 
 
-
-
 1. Controller Machine: Machine where Ansible is installed
 2. Inventory: Information regarding servers to be managed
 3. Playbook: Automation is defined using tasks defined in YAML format
