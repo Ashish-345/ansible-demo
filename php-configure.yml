@@ -1,0 +1,27 @@
+- hosts: webapp
+  tasks:
+    - name: Install GIT package
+      yum:
+        name: git
+        state: latest 
+
+    - name: Deploy PHP latest aritifact from GITHUB
+      git:
+        repo: https://github.com/CodvaTech-Labs/php-demo.git
+        dest: /tmp/php-cicd
+      tags: deploy
+
+    - name: Push DB Config file to EC2 Server
+      copy:
+        src: files/config.php
+        dest: /tmp/php-cicd
+        mode: 777
+
+    - name: Copy aritifact from tmp to php application folder
+      command: cp -r /tmp/php-cicd/. /opt/lampp/htdocs
+
+    - name: Give permission to php folder
+      command: sudo chmod -R 777 /opt/lampp/htdocs/
+
+    - name: Restart lampp Server
+      command: sudo /opt/lampp/lampp restart
