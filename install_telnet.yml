@@ -1,0 +1,7 @@
+---
+-
+ - host: webapp
+   tasks: Install telnet
+   yum:
+     name: telnet
+     state: latest
