@@ -1,4 +1,4 @@
-- hosts: webapp
+- hosts: java-app
   tasks:
     - name: Install GIT package
       yum:
@@ -7,7 +7,7 @@
 
     - name: Deploy PHP latest aritifact from GITHUB
       git:
-        repo: https://github.com/CodvaTech-Labs/php-demo.git
+        repo: https://github.com/Ashish-345/php-demo.git
         dest: /tmp/php-cicd
       tags: deploy
 
